@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import { productItems } from '../data/productItems'
 import Card from '../components/Card'
-import Checkout from '../components/Checkout'
 import { useSelector, useDispatch } from "react-redux"
 import { total } from '../redux/slice/CartSlice'
 
 
 const Products = () => {
-    const {isOpen} = useSelector(state => state.checkout)
     const {cartItems} = useSelector(state => state.cart)
     const dispatch = useDispatch()
 
@@ -23,7 +21,6 @@ const Products = () => {
             <Card key={item.id} itemprop={item}/>
         ))
       }
-      {isOpen && <Checkout />}
     </div>
   )
 }

@@ -8,54 +8,24 @@ import Register from './pages/Register';
 import Contact from './pages/Contact';
 import About from './pages/About';
 
-
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <Layout>
-        <App />
-      </Layout>
-    ),
-  },
-  {
-    path: '/products',
-    element: (
-      <Layout>
-        <Products />
-      </Layout>
-    ),
-  },
-  {
-    path: '/contact',
-    element: (
-      <Layout>
-        <Contact />
-      </Layout>
-    ),
-  },
-  {
-    path: '/about',
-    element: (
-      <Layout>
-        <About />
-      </Layout>
-    ),
-  },
-  {
-    path: '/products/:id',
-    element: (
-      <Layout>
-        <ProductPage />
-      </Layout>
-    ),
+    element: <Layout />,
+    children: [
+      { path: '/', element: <App /> },
+      { path: '/products', element: <Products /> },
+      { path: '/products/:id', element: <ProductPage /> },
+      { path: '/contact', element: <Contact /> },
+      { path: '/about', element: <About /> },
+    ],
   },
   {
     path: '/login',
-    element: <Login />
+    element: <Login />,
   },
   {
-    path: "/register",
-    element: <Register />
-  }
+    path: '/register',
+    element: <Register />,
+  },
 ]);
